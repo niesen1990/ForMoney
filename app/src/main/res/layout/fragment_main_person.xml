@@ -1,0 +1,296 @@
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.fuck.formoney.fragment.main.MainRankFragment">
+
+        <RelativeLayout
+            android:id="@+id/rl_01"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@color/primaryColor"
+            android:paddingBottom="@dimen/activity_vertical_margin_half"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin_half">
+
+            <ImageView
+                android:id="@+id/iv_head"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:src="@mipmap/ic_launcher"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_head"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="萌宝派"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/txt_large"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tv_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_vertical_margin_half"
+                    android:text="(ID:19901123)"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/txt_middle"/>
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/btn_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/selector_button_red_to_white"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="我的二维码"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/txt_large"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_01"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_below="@+id/rl_01"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_half"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_half"
+            android:layout_marginTop="@dimen/activity_horizontal_margin_half"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="2dp">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:drawableLeft="@drawable/ic_action_account_circle"
+                android:drawablePadding="@dimen/activity_vertical_margin"
+                android:gravity="center"
+                android:paddingBottom="@dimen/activity_horizontal_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_horizontal_margin"
+                android:text="个人资料"
+                android:textColor="@color/dimgray"
+                android:textSize="@dimen/txt_large"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|right"
+                android:alpha="0.5"
+                android:paddingBottom="@dimen/activity_horizontal_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_horizontal_margin"
+
+                android:src="@drawable/ic_action_chevron_right"/>
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_02"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_below="@+id/cv_01"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_half"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_half"
+            android:layout_marginTop="@dimen/activity_horizontal_margin_half"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="2dp">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:drawableLeft="@drawable/ic_action_call"
+                android:drawablePadding="@dimen/activity_vertical_margin"
+                android:gravity="center"
+                android:paddingBottom="@dimen/activity_horizontal_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_horizontal_margin"
+                android:text="手机号码"
+                android:textColor="@color/dimgray"
+                android:textSize="@dimen/txt_large"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|right"
+                android:alpha="0.5"
+                android:paddingBottom="@dimen/activity_horizontal_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_horizontal_margin"
+
+                android:src="@drawable/ic_action_chevron_right"/>
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_03"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_below="@+id/cv_02"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_half"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_half"
+            android:layout_marginTop="@dimen/activity_horizontal_margin_half"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="2dp">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:drawableLeft="@drawable/ic_action_camera"
+                android:drawablePadding="@dimen/activity_vertical_margin"
+                android:gravity="center"
+                android:paddingBottom="@dimen/activity_horizontal_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_horizontal_margin"
+                android:text="绑定微信"
+                android:textColor="@color/dimgray"
+                android:textSize="@dimen/txt_large"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|right"
+                android:alpha="0.5"
+                android:paddingBottom="@dimen/activity_horizontal_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_horizontal_margin"
+                android:src="@drawable/ic_action_chevron_right"/>
+
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_04"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_below="@+id/cv_03"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_half"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_half"
+            android:layout_marginTop="32dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="2dp">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:drawableLeft="@drawable/ic_action_account_circle"
+                android:drawablePadding="@dimen/activity_vertical_margin"
+                android:gravity="center"
+                android:paddingBottom="@dimen/activity_horizontal_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_horizontal_margin"
+                android:text="自助客服"
+                android:textColor="@color/dimgray"
+                android:textSize="@dimen/txt_large"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|right"
+                android:alpha="0.5"
+                android:paddingBottom="@dimen/activity_horizontal_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_horizontal_margin"
+                android:src="@drawable/ic_action_chevron_right"/>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_05"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_below="@+id/cv_04"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin_half"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_half"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_half"
+            android:layout_marginTop="@dimen/activity_horizontal_margin_half"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="2dp">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:drawableLeft="@drawable/ic_action_portrait"
+                android:drawablePadding="@dimen/activity_vertical_margin"
+                android:gravity="center"
+                android:paddingBottom="@dimen/activity_horizontal_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_horizontal_margin"
+                android:text="联系我们"
+                android:textColor="@color/dimgray"
+                android:textSize="@dimen/txt_large"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|right"
+                android:alpha="0.5"
+                android:paddingBottom="@dimen/activity_horizontal_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_horizontal_margin"
+                android:src="@drawable/ic_action_chevron_right"/>
+
+        </android.support.v7.widget.CardView>
+
+    </RelativeLayout>
+</android.support.v4.widget.NestedScrollView>

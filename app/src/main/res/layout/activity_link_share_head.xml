@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#EEEEEE">
+
+    <LinearLayout
+        android:id="@+id/ll_01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_half"
+            android:layout_marginTop="@dimen/activity_vertical_margin_half"
+            android:layout_toLeftOf="@+id/tv_whole_end"
+            android:gravity="center_vertical"
+            android:text="声明："
+            android:textColor="@color/primaryColor"
+            android:textSize="@dimen/txt_xlarge"
+            android:textStyle="bold"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_half"
+            android:layout_marginTop="@dimen/activity_vertical_margin_half"
+            android:layout_toLeftOf="@+id/tv_whole_end"
+            android:gravity="center_vertical"
+            android:text="分享任务赚取奖励隔天发放"
+            android:textColor="@color/dimgray"
+            android:textSize="@dimen/txt_large"/>
+    </LinearLayout>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_content02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_01"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin_half"
+        android:layout_marginTop="@dimen/activity_vertical_margin_half"
+        android:gravity="center"
+        android:text="邀请好友完成任务的越赚越多"
+        android:textColor="@color/primaryColor"
+        android:textSize="@dimen/txt_large"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_content03"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_content02"
+        android:layout_marginBottom="@dimen/activity_vertical_margin_half"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin_half"
+        android:layout_marginTop="@dimen/activity_vertical_margin_half"
+        android:gravity="center"
+        android:text="每天不定时更新"
+        android:textColor="@color/dimgray"
+        android:textSize="@dimen/txt_large"/>
+</RelativeLayout>

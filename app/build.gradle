@@ -1,0 +1,100 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        applicationId "com.fuck.formoney"
+        minSdkVersion 14
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0.1"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+        wandoujia {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wandoujia"]
+        }
+        baidu {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "baidu"]
+        }
+        c360 {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "c360"]
+        }
+        uc {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "uc"]
+        }
+        Tencent {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "Tencent"]
+        }
+        Umeng {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "Umeng"]
+        }
+        Meizu {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "Meizu"]
+        }
+        XiaoMi {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "XiaoMi"]
+        }
+        HuaWei {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "HuaWei"]
+        }
+        Oppo {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "Oppo"]
+        }
+        Lenovo {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "Lenovo"]
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    android {
+        packagingOptions {
+            exclude 'META-INF/LICENSE.txt'
+            exclude 'META-INF/NOTICE.txt'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.0.1'
+    compile 'com.android.support:design:23.0.1'
+    compile 'com.facebook.stetho:stetho-okhttp:1.1.1'
+    compile 'com.google.code.gson:gson:2.3'
+    compile 'com.android.support:design:23.0.1'
+    compile files('libs/com.umeng.message.lib_v2.5.0.jar')
+    compile files('libs/httpmime-4.1.3.jar')
+    compile files('libs/locSDK_5.2.jar')
+    compile files('libs/SocialSDK_QQZone_1.jar')
+    compile files('libs/SocialSDK_QQZone_2.jar')
+    compile files('libs/SocialSDK_QQZone_3.jar')
+    compile files('libs/SocialSDK_scrshot.jar')
+    compile files('libs/SocialSDK_shake.jar')
+    compile files('libs/SocialSDK_Sina.jar')
+    compile files('libs/SocialSDK_WeiXin_1.jar')
+    compile files('libs/SocialSDK_WeiXin_2.jar')
+    compile files('libs/umeng-update-v2.6.0.1.jar')
+    compile files('libs/umeng_social_sdk.jar')
+    compile files('libs/pgyer_sdk_2.2.jar')
+    compile 'com.umeng.analytics:analytics:5.5.3'
+    compile 'com.android.support:recyclerview-v7:23.0.1'
+    compile project(':MengBottomSheets')
+    compile 'com.android.support:cardview-v7:23.0.1'
+    compile 'com.squareup.okhttp:okhttp:2.4.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.4.0'
+    compile project(':MengPhotoPicker')
+}

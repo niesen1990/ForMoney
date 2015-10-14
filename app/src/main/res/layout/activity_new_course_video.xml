@@ -1,0 +1,72 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.fuck.formoney.activity.main.NewCourseVideoActivity">
+
+    <include layout="@layout/custom_actionbar"/>
+
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:gravity="center"
+        android:text="钱佳最强赚钱攻略"
+        android:textColor="@color/primaryColor"
+        android:textSize="@dimen/txt_xlarge"
+        android:textStyle="bold"/>
+
+    <FrameLayout
+        android:id="@+id/fl_middle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        >
+
+        <VideoView
+            android:id="@+id/video"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"/>
+
+        <ImageView
+            android:id="@+id/btn_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_action_play_white"/>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/btn_share"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp "
+        android:layout_below="@+id/fl_middle"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin_half"
+        android:background="@drawable/selector_button_red_to_white_solid"
+        android:gravity="center"
+        android:text="分享 +0.5元"
+        android:textColor="@drawable/selector_text_color_pressed_white_to_red"
+        android:textSize="@dimen/txt_xlarge"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_end_01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_share"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:gravity="center"
+        android:text="观看钱佳最强攻略，轻轻松松赚钱"
+        android:textColor="@color/dimgray"
+        android:textSize="@dimen/txt_large"/>
+</RelativeLayout>

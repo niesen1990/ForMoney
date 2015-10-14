@@ -1,0 +1,438 @@
+package com.fuck.formoney.activity.login.model;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+
+/**
+ * 项目名称：ForMoney
+ * 类描述：
+ * 创建人：N.Sun
+ * 创建时间：15/10/13 下午8:18
+ */
+public class RegisterModel implements Parcelable {
+
+    /**
+     * resultMsg : 注册成功
+     * statusCode : 200
+     * tokenId : FC1F4C904680493BA0CE933B74DE2EF3
+     * userData : {"appVersion":"meizu","inviteCode":"DMYX4uso","loginDate":"MIEZU","loginPassword":"81dc9bdb52d04dc20036dbd8313ed055","userAddress":"dd","userBigHeadImgUrl":"dad","userBigImgHeight":"da","userBigImgWidth":"dsa","userBirthday":"dafas","userCity":"dfasd","userIndex":"das","userMail":"das","userNick":"df","userPhone":"18221507236","userPhoneVersion":"fsda","userProfession":"dfa","userSex":"dfasd","userSignContext":"dfad","userSmallHeadImgUrl":"dfasd","userSmallImgHeight":"dfa","userSmallImgWidth":"dfa","userStatus":1}
+     * appPushToken : e87e305cae4a44ba8086b4442445328b
+     */
+
+    private String resultMsg;
+    private int statusCode;
+    private String tokenId;
+    private UserDataEntity userData;
+    private String appPushToken;
+
+    public void setResultMsg(String resultMsg) {
+        this.resultMsg = resultMsg;
+    }
+
+    public void setStatusCode(int statusCode) {
+        this.statusCode = statusCode;
+    }
+
+    public void setTokenId(String tokenId) {
+        this.tokenId = tokenId;
+    }
+
+    public void setUserData(UserDataEntity userData) {
+        this.userData = userData;
+    }
+
+    public void setAppPushToken(String appPushToken) {
+        this.appPushToken = appPushToken;
+    }
+
+    public String getResultMsg() {
+        return resultMsg;
+    }
+
+    public int getStatusCode() {
+        return statusCode;
+    }
+
+    public String getTokenId() {
+        return tokenId;
+    }
+
+    public UserDataEntity getUserData() {
+        return userData;
+    }
+
+    public String getAppPushToken() {
+        return appPushToken;
+    }
+
+    public static class UserDataEntity implements Parcelable {
+        /**
+         * appVersion : meizu
+         * inviteCode : DMYX4uso
+         * loginDate : MIEZU
+         * loginPassword : 81dc9bdb52d04dc20036dbd8313ed055
+         * userAddress : dd
+         * userBigHeadImgUrl : dad
+         * userBigImgHeight : da
+         * userBigImgWidth : dsa
+         * userBirthday : dafas
+         * userCity : dfasd
+         * userIndex : das
+         * userMail : das
+         * userNick : df
+         * userPhone : 18221507236
+         * userPhoneVersion : fsda
+         * userProfession : dfa
+         * userSex : dfasd
+         * userSignContext : dfad
+         * userSmallHeadImgUrl : dfasd
+         * userSmallImgHeight : dfa
+         * userSmallImgWidth : dfa
+         * userStatus : 1
+         */
+
+        private String appVersion;
+        private String inviteCode;
+        private String loginDate;
+        private String loginPassword;
+        private String userAddress;
+        private String userBigHeadImgUrl;
+        private String userBigImgHeight;
+        private String userBigImgWidth;
+        private String userBirthday;
+        private String userCity;
+        private String userIndex;
+        private String userMail;
+        private String userNick;
+        private String userPhone;
+        private String userPhoneVersion;
+        private String userProfession;
+        private String userSex;
+        private String userSignContext;
+        private String userSmallHeadImgUrl;
+        private String userSmallImgHeight;
+        private String userSmallImgWidth;
+        private int userStatus;
+
+        public void setAppVersion(String appVersion) {
+            this.appVersion = appVersion;
+        }
+
+        public void setInviteCode(String inviteCode) {
+            this.inviteCode = inviteCode;
+        }
+
+        public void setLoginDate(String loginDate) {
+            this.loginDate = loginDate;
+        }
+
+        public void setLoginPassword(String loginPassword) {
+            this.loginPassword = loginPassword;
+        }
+
+        public void setUserAddress(String userAddress) {
+            this.userAddress = userAddress;
+        }
+
+        public void setUserBigHeadImgUrl(String userBigHeadImgUrl) {
+            this.userBigHeadImgUrl = userBigHeadImgUrl;
+        }
+
+        public void setUserBigImgHeight(String userBigImgHeight) {
+            this.userBigImgHeight = userBigImgHeight;
+        }
+
+        public void setUserBigImgWidth(String userBigImgWidth) {
+            this.userBigImgWidth = userBigImgWidth;
+        }
+
+        public void setUserBirthday(String userBirthday) {
+            this.userBirthday = userBirthday;
+        }
+
+        public void setUserCity(String userCity) {
+            this.userCity = userCity;
+        }
+
+        public void setUserIndex(String userIndex) {
+            this.userIndex = userIndex;
+        }
+
+        public void setUserMail(String userMail) {
+            this.userMail = userMail;
+        }
+
+        public void setUserNick(String userNick) {
+            this.userNick = userNick;
+        }
+
+        public void setUserPhone(String userPhone) {
+            this.userPhone = userPhone;
+        }
+
+        public void setUserPhoneVersion(String userPhoneVersion) {
+            this.userPhoneVersion = userPhoneVersion;
+        }
+
+        public void setUserProfession(String userProfession) {
+            this.userProfession = userProfession;
+        }
+
+        public void setUserSex(String userSex) {
+            this.userSex = userSex;
+        }
+
+        public void setUserSignContext(String userSignContext) {
+            this.userSignContext = userSignContext;
+        }
+
+        public void setUserSmallHeadImgUrl(String userSmallHeadImgUrl) {
+            this.userSmallHeadImgUrl = userSmallHeadImgUrl;
+        }
+
+        public void setUserSmallImgHeight(String userSmallImgHeight) {
+            this.userSmallImgHeight = userSmallImgHeight;
+        }
+
+        public void setUserSmallImgWidth(String userSmallImgWidth) {
+            this.userSmallImgWidth = userSmallImgWidth;
+        }
+
+        public void setUserStatus(int userStatus) {
+            this.userStatus = userStatus;
+        }
+
+        public String getAppVersion() {
+            return appVersion;
+        }
+
+        public String getInviteCode() {
+            return inviteCode;
+        }
+
+        public String getLoginDate() {
+            return loginDate;
+        }
+
+        public String getLoginPassword() {
+            return loginPassword;
+        }
+
+        public String getUserAddress() {
+            return userAddress;
+        }
+
+        public String getUserBigHeadImgUrl() {
+            return userBigHeadImgUrl;
+        }
+
+        public String getUserBigImgHeight() {
+            return userBigImgHeight;
+        }
+
+        public String getUserBigImgWidth() {
+            return userBigImgWidth;
+        }
+
+        public String getUserBirthday() {
+            return userBirthday;
+        }
+
+        public String getUserCity() {
+            return userCity;
+        }
+
+        public String getUserIndex() {
+            return userIndex;
+        }
+
+        public String getUserMail() {
+            return userMail;
+        }
+
+        public String getUserNick() {
+            return userNick;
+        }
+
+        public String getUserPhone() {
+            return userPhone;
+        }
+
+        public String getUserPhoneVersion() {
+            return userPhoneVersion;
+        }
+
+        public String getUserProfession() {
+            return userProfession;
+        }
+
+        public String getUserSex() {
+            return userSex;
+        }
+
+        public String getUserSignContext() {
+            return userSignContext;
+        }
+
+        public String getUserSmallHeadImgUrl() {
+            return userSmallHeadImgUrl;
+        }
+
+        public String getUserSmallImgHeight() {
+            return userSmallImgHeight;
+        }
+
+        public String getUserSmallImgWidth() {
+            return userSmallImgWidth;
+        }
+
+        public int getUserStatus() {
+            return userStatus;
+        }
+
+        @Override
+        public String toString() {
+            return "UserDataEntity{" +
+                    "appVersion='" + appVersion + '\'' +
+                    ", inviteCode='" + inviteCode + '\'' +
+                    ", loginDate='" + loginDate + '\'' +
+                    ", loginPassword='" + loginPassword + '\'' +
+                    ", userAddress='" + userAddress + '\'' +
+                    ", userBigHeadImgUrl='" + userBigHeadImgUrl + '\'' +
+                    ", userBigImgHeight='" + userBigImgHeight + '\'' +
+                    ", userBigImgWidth='" + userBigImgWidth + '\'' +
+                    ", userBirthday='" + userBirthday + '\'' +
+                    ", userCity='" + userCity + '\'' +
+                    ", userIndex='" + userIndex + '\'' +
+                    ", userMail='" + userMail + '\'' +
+                    ", userNick='" + userNick + '\'' +
+                    ", userPhone='" + userPhone + '\'' +
+                    ", userPhoneVersion='" + userPhoneVersion + '\'' +
+                    ", userProfession='" + userProfession + '\'' +
+                    ", userSex='" + userSex + '\'' +
+                    ", userSignContext='" + userSignContext + '\'' +
+                    ", userSmallHeadImgUrl='" + userSmallHeadImgUrl + '\'' +
+                    ", userSmallImgHeight='" + userSmallImgHeight + '\'' +
+                    ", userSmallImgWidth='" + userSmallImgWidth + '\'' +
+                    ", userStatus=" + userStatus +
+                    '}';
+        }
+
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeString(this.appVersion);
+            dest.writeString(this.inviteCode);
+            dest.writeString(this.loginDate);
+            dest.writeString(this.loginPassword);
+            dest.writeString(this.userAddress);
+            dest.writeString(this.userBigHeadImgUrl);
+            dest.writeString(this.userBigImgHeight);
+            dest.writeString(this.userBigImgWidth);
+            dest.writeString(this.userBirthday);
+            dest.writeString(this.userCity);
+            dest.writeString(this.userIndex);
+            dest.writeString(this.userMail);
+            dest.writeString(this.userNick);
+            dest.writeString(this.userPhone);
+            dest.writeString(this.userPhoneVersion);
+            dest.writeString(this.userProfession);
+            dest.writeString(this.userSex);
+            dest.writeString(this.userSignContext);
+            dest.writeString(this.userSmallHeadImgUrl);
+            dest.writeString(this.userSmallImgHeight);
+            dest.writeString(this.userSmallImgWidth);
+            dest.writeInt(this.userStatus);
+        }
+
+        public UserDataEntity() {
+        }
+
+        protected UserDataEntity(Parcel in) {
+            this.appVersion = in.readString();
+            this.inviteCode = in.readString();
+            this.loginDate = in.readString();
+            this.loginPassword = in.readString();
+            this.userAddress = in.readString();
+            this.userBigHeadImgUrl = in.readString();
+            this.userBigImgHeight = in.readString();
+            this.userBigImgWidth = in.readString();
+            this.userBirthday = in.readString();
+            this.userCity = in.readString();
+            this.userIndex = in.readString();
+            this.userMail = in.readString();
+            this.userNick = in.readString();
+            this.userPhone = in.readString();
+            this.userPhoneVersion = in.readString();
+            this.userProfession = in.readString();
+            this.userSex = in.readString();
+            this.userSignContext = in.readString();
+            this.userSmallHeadImgUrl = in.readString();
+            this.userSmallImgHeight = in.readString();
+            this.userSmallImgWidth = in.readString();
+            this.userStatus = in.readInt();
+        }
+
+        public static final Parcelable.Creator<UserDataEntity> CREATOR = new Parcelable.Creator<UserDataEntity>() {
+            public UserDataEntity createFromParcel(Parcel source) {
+                return new UserDataEntity(source);
+            }
+
+            public UserDataEntity[] newArray(int size) {
+                return new UserDataEntity[size];
+            }
+        };
+    }
+
+    @Override
+    public String toString() {
+        return "RegisterModel{" +
+                "resultMsg='" + resultMsg + '\'' +
+                ", statusCode=" + statusCode +
+                ", tokenId='" + tokenId + '\'' +
+                ", userData=" + userData +
+                ", appPushToken='" + appPushToken + '\'' +
+                '}';
+    }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.resultMsg);
+        dest.writeInt(this.statusCode);
+        dest.writeString(this.tokenId);
+        dest.writeParcelable(this.userData, 0);
+        dest.writeString(this.appPushToken);
+    }
+
+    public RegisterModel() {
+    }
+
+    protected RegisterModel(Parcel in) {
+        this.resultMsg = in.readString();
+        this.statusCode = in.readInt();
+        this.tokenId = in.readString();
+        this.userData = in.readParcelable(UserDataEntity.class.getClassLoader());
+        this.appPushToken = in.readString();
+    }
+
+    public static final Parcelable.Creator<RegisterModel> CREATOR = new Parcelable.Creator<RegisterModel>() {
+        public RegisterModel createFromParcel(Parcel source) {
+            return new RegisterModel(source);
+        }
+
+        public RegisterModel[] newArray(int size) {
+            return new RegisterModel[size];
+        }
+    };
+}
