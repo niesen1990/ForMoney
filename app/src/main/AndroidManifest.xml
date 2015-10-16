@@ -224,7 +224,6 @@
         <activity
             android:name=".activity.login.LoginActivity"
             android:label="@string/title_activity_login" />
-
         <activity
             android:name=".activity.login.AuthPhotoRegistryActivity"
             android:label="@string/title_activity_auth_photo_registry" />
@@ -318,6 +317,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activity.main.LotteryActivity"
+            android:label="@string/title_activity_lottery"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".activity.setting.SettingActivity"></activity>
     </application>
 
 </manifest>

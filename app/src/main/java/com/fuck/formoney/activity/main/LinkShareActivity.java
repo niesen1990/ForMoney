@@ -15,7 +15,7 @@ public class LinkShareActivity extends BaseActivity {
     protected void init(Bundle savedInstanceState) {
         collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle("限时推荐");
-        collapsingToolbarLayout.setExpandedTitleColor(android.R.color.transparent);
+        collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(android.R.color.transparent));
     }
 
     @Override

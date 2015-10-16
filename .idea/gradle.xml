@@ -9,9 +9,10 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/LoadMoreRecyclerView" />
             <option value="$PROJECT_DIR$/MengBottomSheets" />
             <option value="$PROJECT_DIR$/MengPhotoPicker" />
-            <option value="$PROJECT_DIR$/MengRecyclerView" />
+            <option value="$PROJECT_DIR$/MultiRecyclerView" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>

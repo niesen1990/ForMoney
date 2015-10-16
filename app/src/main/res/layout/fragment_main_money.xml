@@ -118,12 +118,14 @@
             android:id="@+id/btn_limit_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0.5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackground"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="0dp"
-            app:cardElevation="0dp">
+            app:cardElevation="3dp">
 
             <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"
@@ -157,12 +159,14 @@
             android:id="@+id/btn_forward"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0.5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackground"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="0dp"
-            app:cardElevation="0dp">
+            app:cardElevation="3dp">
 
             <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"
@@ -197,12 +201,14 @@
             android:id="@+id/btn_course"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0.5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackground"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="0dp"
-            app:cardElevation="0dp">
+            app:cardElevation="3dp">
 
             <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"
@@ -236,12 +242,15 @@
             android:id="@+id/btn_raffle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0.5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackground"
             app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="0dp"
-            app:cardElevation="0dp">
+            app:cardElevation="3dp">
 
             <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"

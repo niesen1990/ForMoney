@@ -73,6 +73,8 @@ public class OkHttpClientManager {
     private UploadDelegate mUploadDelegate = new UploadDelegate();
     private PostDelegate mPostDelegate = new PostDelegate();
 
+    private static final MediaType MEDIA_TYPE_PNG = MediaType.parse("image/png");
+
     private static int cacheSize = 30 * 1024 * 1024; // 30 MiB
 
     private OkHttpClientManager() {
@@ -80,7 +82,7 @@ public class OkHttpClientManager {
         //cookie enabled
         //mOkHttpClient.setCookieHandler(new CookieManager(null, CookiePolicy.ACCEPT_ALL));
         mOkHttpClient.setCookieHandler(new CookieManager(new PersistentCookieStore(BaseApplication.getContext()), CookiePolicy.ACCEPT_ALL));
-        mOkHttpClient.setCache(new Cache(BaseApplication.getContext().getExternalCacheDir(), cacheSize));
+        //mOkHttpClient.setCache(new Cache(BaseApplication.getContext().getExternalCacheDir(), cacheSize));
         mDelivery = new Handler(Looper.getMainLooper());
         mGson = new Gson();
 
@@ -166,6 +168,10 @@ public class OkHttpClientManager {
 
     public static void postAsyn(String url, Map<String, String> params, final ResultCallback callback) {
         getInstance().getPostDelegate().postAsyn(url, params, callback, null);
+    }
+
+    public static void postAsyn(String url, Map<String, String> params, File file, final ResultCallback callback) {
+        getInstance().getPostDelegate().postAsyn(url, params, file, callback, null);
     }
 
     public static void postAsyn(String url, String bodyStr, final ResultCallback callback) {
@@ -281,14 +287,47 @@ public class OkHttpClientManager {
         if (params == null) {
             params = new Param[0];
         }
-        FormEncodingBuilder builder = new FormEncodingBuilder();
+        MultipartBuilder builder = new MultipartBuilder();
+        builder.type(MultipartBuilder.MIXED);
         for (Param param : params) {
-            builder.add(param.key, param.value);
+            builder.addFormDataPart(param.key, param.value);
             Log.e("Request", param.key + " : " + param.value);
         }
         RequestBody requestBody = builder.build();
+        Request.Builder reqBuilder = new Request.Builder();
+        reqBuilder.url(url)
+                .post(requestBody);
 
+        if (tag != null) {
+            reqBuilder.tag(tag);
+        }
+        return reqBuilder.build();
+    }
 
+    /**
+     * with file
+     *
+     * @param url
+     * @param params
+     * @param file
+     * @param tag
+     * @return
+     */
+    private Request buildPostFormRequest(String url, Param[] params, File file, Object tag) {
+        Log.e("Request", "Request Url = " + url);
+        if (params == null) {
+            params = new Param[0];
+        }
+        MultipartBuilder builder = new MultipartBuilder();
+        builder.type(MultipartBuilder.MIXED);
+        for (Param param : params) {
+            builder.addFormDataPart(param.key, param.value);
+            Log.e("Request", param.key + " : " + param.value);
+        }
+        if (null != file) {
+            builder.addFormDataPart("imageFile", "image", RequestBody.create(MEDIA_TYPE_PNG, file));
+        }
+        RequestBody requestBody = builder.build();
         Request.Builder reqBuilder = new Request.Builder();
         reqBuilder.url(url)
                 .post(requestBody);
@@ -408,6 +447,11 @@ public class OkHttpClientManager {
             postAsyn(url, paramsArr, callback, tag);
         }
 
+        public void postAsyn(String url, Map<String, String> params, File file, final ResultCallback callback, Object tag) {
+            Param[] paramsArr = map2Params(params);
+            postAsyn(url, paramsArr, file, callback, tag);
+        }
+
         public void postAsyn(String url, Param[] params, final ResultCallback callback) {
             postAsyn(url, params, callback, null);
         }
@@ -417,6 +461,14 @@ public class OkHttpClientManager {
          */
         public void postAsyn(String url, Param[] params, final ResultCallback callback, Object tag) {
             Request request = buildPostFormRequest(url, params, tag);
+            deliveryResult(callback, request);
+        }
+
+        /**
+         * 异步的post请求
+         */
+        public void postAsyn(String url, Param[] params, File file, final ResultCallback callback, Object tag) {
+            Request request = buildPostFormRequest(url, params, file, tag);
             deliveryResult(callback, request);
         }
 

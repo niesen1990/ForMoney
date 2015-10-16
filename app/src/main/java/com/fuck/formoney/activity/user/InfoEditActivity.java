@@ -10,6 +10,7 @@ import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,14 +21,25 @@ import android.widget.TextView;
 import com.cmbb.smartkids.mengbottomsheets.BottomSheet;
 import com.cmbb.smartkids.photopicker.PhotoPickerActivity;
 import com.cmbb.smartkids.photopicker.utils.PhotoPickerIntent;
+import com.fuck.formoney.MainActivity;
 import com.fuck.formoney.R;
+import com.fuck.formoney.activity.login.model.RegisterModel;
 import com.fuck.formoney.base.BaseActivity;
+import com.fuck.formoney.base.BaseApplication;
+import com.fuck.formoney.base.Constants;
+import com.fuck.formoney.network.OkHttpClientManager;
 import com.fuck.formoney.utils.PicassoTools;
+import com.fuck.formoney.utils.SPCache;
 import com.fuck.formoney.utils.log.Log;
+import com.squareup.okhttp.Request;
+import com.squareup.picasso.Picasso;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class InfoEditActivity extends BaseActivity {
 
@@ -46,6 +58,8 @@ public class InfoEditActivity extends BaseActivity {
     private ImageView ivHead;
     private TextView mBtnSubmit;
 
+    private int g_sex = -1;
+
     private void assignViews() {
         mAppbar = (AppBarLayout) findViewById(R.id.appbar);
         mCollapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
@@ -63,12 +77,43 @@ public class InfoEditActivity extends BaseActivity {
         ivHead = (ImageView) findViewById(R.id.iv_head);
         ivHead.setOnClickListener(this);
         mBtnSubmit = (TextView) findViewById(R.id.btn_submit);
+        mBtnSubmit.setOnClickListener(this);
     }
 
 
     @Override
     protected void init(Bundle savedInstanceState) {
         assignViews();
+        initData();
+    }
+
+    String image;
+    String nick;
+    String sex;
+    String birthday;
+    String profession;
+
+    private void initData() {
+        image = SPCache.getString(Constants.SharePreference.USER_HEAD_IMAGE, "");
+        nick = SPCache.getString(Constants.SharePreference.USER_NICK, "");
+        sex = SPCache.getString(Constants.SharePreference.USER_SEX, "");
+        birthday = SPCache.getString(Constants.SharePreference.USER_BIRTHDAY, "");
+        profession = SPCache.getString(Constants.SharePreference.USER_PROFESSION, "");
+        if (!TextUtils.isEmpty(image)) {
+            PicassoTools.loadImage(this, image, ivHead, true);
+        }
+        if (!TextUtils.isEmpty(nick)) {
+            mEtName.setText(nick);
+        }
+        if (!TextUtils.isEmpty(sex)) {
+            mBtnGender.setText(sex);
+        }
+        if (!TextUtils.isEmpty(birthday)) {
+            mBtnBirthday.setText(birthday);
+        }
+        if (!TextUtils.isEmpty(profession)) {
+            mEtJob.setText(profession);
+        }
     }
 
     @Override
@@ -104,9 +149,11 @@ public class InfoEditActivity extends BaseActivity {
                         switch (which) {
                             case R.id.action_boy:
                                 mBtnGender.setText("男");
+                                g_sex = 1;
                                 break;
                             case R.id.action_girl:
                                 mBtnGender.setText("女");
+                                g_sex = 2;
                                 break;
                         }
                     }
@@ -119,9 +166,56 @@ public class InfoEditActivity extends BaseActivity {
                 startActivityForResult(intent, REQUEST_CODE);
                 break;
             case R.id.btn_submit:
-
+                handleInfoRequest();
                 break;
         }
+    }
+
+    private void handleInfoRequest() {
+        String nick = mEtName.getText().toString().trim();
+        String bir = mBtnBirthday.getText().toString().trim();
+        String pro = mEtJob.getText().toString().trim();
+        Map<String, String> params = new HashMap<>();
+        params.put("tokenId", BaseApplication.token);
+        if (!TextUtils.isEmpty(nick)) {
+            params.put("userNick", nick);
+        }
+        if (g_sex != -1) {
+            params.put("userSex", g_sex + "");
+        }
+        if (!TextUtils.isEmpty(bir)) {
+            params.put("userBirthday", bir);
+        }
+        if (!TextUtils.isEmpty(pro)) {
+            params.put("userProfession", pro);
+        }
+        File file = null;
+        if (imgs.size() > 0) {
+            file = new File(imgs.get(0));
+        }
+        OkHttpClientManager.postAsyn(Constants.UserInfo.UPDATE_USER_BASIC, params, file, new OkHttpClientManager.ResultCallback<RegisterModel>() {
+            @Override
+            public void onError(Request request, Exception e) {
+                e.printStackTrace();
+                showShortToast("请检查网络");
+            }
+
+            @Override
+            public void onResponse(RegisterModel us) {
+                Log.e("TAG", us.toString());
+                showShortToast(us.getResultMsg());
+                if (us.getStatusCode() == 200) {
+                    SPCache.putString(Constants.SharePreference.USER_TOKEN, us.getTokenId());
+                    SPCache.putInt(Constants.SharePreference.USER_STATUS, us.getData().getUserStatus());
+                    SPCache.putString(Constants.SharePreference.USER_HEAD_IMAGE, us.getData().getUserSmallHeadImgUrl());
+                    SPCache.putString(Constants.SharePreference.USER_NICK, us.getData().getUserNick());
+                    SPCache.putString(Constants.SharePreference.USER_PROFESSION, us.getData().getUserProfession());
+                    SPCache.putString(Constants.SharePreference.USER_PHONE, us.getData().getUserPhone());
+                    SPCache.putString(Constants.SharePreference.USER_SEX, us.getData().getUserSex());
+                    SPCache.putString(Constants.SharePreference.USER_BIRTHDAY, us.getData().getUserBirthday());
+                }
+            }
+        });
     }
 
     @Override
@@ -133,11 +227,9 @@ public class InfoEditActivity extends BaseActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 

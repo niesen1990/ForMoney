@@ -20,7 +20,9 @@
     <string name="title_activity_link_share">限时推荐</string>
     <string name="title_activity_new_course">新手教程</string>
     <string name="title_activity_new_course_video">新手教程分享</string>
-    <string name="title_activity_info_edit">InfoEditActivity</string>
+    <string name="title_activity_info_edit"></string>
     <string name="action_boy">男</string>
     <string name="action_girl">女</string>
+    <string name="title_activity_lottery">每日抽奖</string>
+    <string name="action_decode">我的二维码</string>
 </resources>

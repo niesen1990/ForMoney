@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/iv_head"
         android:layout_width="84dp"
         android:layout_height="84dp"
         android:layout_centerInParent="true"
-        android:src="@mipmap/ic_launcher"/>
+        android:src="@mipmap/ic_launcher" />
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/tv_end_01"
@@ -19,6 +19,6 @@
         android:gravity="center"
         android:text="点击头像更换"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/txt_large"/>
+        android:textSize="@dimen/txt_large" />
 
 </RelativeLayout>

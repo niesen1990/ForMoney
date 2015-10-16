@@ -101,7 +101,15 @@ public class RegisterActivity extends BaseActivity {
                 if (us.getStatusCode() == 200) {
                     // Sp数据保存
                     BaseApplication.token = us.getTokenId();
+
                     SPCache.putString(Constants.SharePreference.USER_TOKEN, us.getTokenId());
+                    SPCache.putInt(Constants.SharePreference.USER_STATUS, us.getData().getUserStatus());
+                    SPCache.putString(Constants.SharePreference.USER_HEAD_IMAGE, us.getData().getUserSmallHeadImgUrl());
+                    SPCache.putString(Constants.SharePreference.USER_NICK, us.getData().getUserNick());
+                    SPCache.putString(Constants.SharePreference.USER_PROFESSION, us.getData().getUserProfession());
+                    SPCache.putString(Constants.SharePreference.USER_PHONE, us.getData().getUserPhone());
+                    SPCache.putString(Constants.SharePreference.USER_SEX, us.getData().getUserSex());
+                    SPCache.putString(Constants.SharePreference.USER_BIRTHDAY, us.getData().getUserBirthday());
                     Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();

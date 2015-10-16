@@ -11,11 +11,21 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.fuck.formoney.MainActivity;
 import com.fuck.formoney.R;
+import com.fuck.formoney.activity.login.model.RegisterModel;
 import com.fuck.formoney.activity.main.LinkShareActivity;
+import com.fuck.formoney.activity.main.LotteryActivity;
 import com.fuck.formoney.activity.main.NewCourseActivity;
+import com.fuck.formoney.base.BaseApplication;
 import com.fuck.formoney.base.BaseFragment;
+import com.fuck.formoney.base.Constants;
+import com.fuck.formoney.network.OkHttpClientManager;
+import com.fuck.formoney.utils.SPCache;
+import com.fuck.formoney.utils.TDevice;
 import com.fuck.formoney.utils.download.DownloadTools;
+import com.fuck.formoney.utils.log.Log;
+import com.squareup.okhttp.Request;
 
 public class MainMoneyFragment extends BaseFragment {
 
@@ -43,6 +53,30 @@ public class MainMoneyFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main_money, container, false);
         return rootView;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        handleProfitRequest();
+    }
+
+    private void handleProfitRequest() {
+        OkHttpClientManager.Param[] params = new OkHttpClientManager.Param[]{
+                new OkHttpClientManager.Param("tokenId", BaseApplication.token)};
+        OkHttpClientManager.postAsyn(Constants.UserInfo.USER_PROFIT, params, new OkHttpClientManager.ResultCallback<RegisterModel>() {
+            @Override
+            public void onError(Request request, Exception e) {
+                e.printStackTrace();
+                showShortToast("请检查网络");
+            }
+
+            @Override
+            public void onResponse(RegisterModel us) {
+
+            }
+        });
+
     }
 
     @Override
@@ -81,6 +115,8 @@ public class MainMoneyFragment extends BaseFragment {
                 startActivity(intent);
                 break;
             case R.id.btn_raffle:
+                intent = new Intent(getActivity(), LotteryActivity.class);
+                startActivity(intent);
                 break;
 
             /*case R.id.btn_test:

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.fuck.formoney.activity.setting.SettingActivity">
+
+    <include layout="@layout/custom_actionbar" />
+
+    <TextView
+        android:id="@+id/btn_account"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp "
+        android:layout_below="@+id/toolbar"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/selector_button_red_to_white_solid"
+        android:gravity="center"
+        android:text="更换账号"
+        android:textColor="@drawable/selector_text_color_pressed_white_to_red"
+        android:textSize="@dimen/txt_xlarge" />
+
+</RelativeLayout>

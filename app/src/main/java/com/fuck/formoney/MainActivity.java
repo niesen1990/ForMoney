@@ -42,10 +42,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void init(Bundle savedInstanceState) {
-
         // 检测更新蒲公英（内测版）
         PgyUpdateManager.register(this);
-
         assignViews();
         initData();
     }
@@ -116,7 +114,6 @@ public class MainActivity extends BaseActivity {
     }
 
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         //getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -151,7 +148,6 @@ public class MainActivity extends BaseActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 
 }

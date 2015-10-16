@@ -11,12 +11,21 @@ public class Constants {
     public static final String INTENT_ACTION_EXIT_APP = packageName + ".intent.action.exitapp";
     public final static int CANCEL_WAIT_DIALOG = 10001;
     public final static String BASE_URL = "http://121.41.94.101:8098/";
+    //public final static String BASE_URL = "http://192.168.100.158:8080/qj-web/";
 
     public static class SharePreference {
         public static final String SCREEN_WIDTH = "screen_width";
         public static final String SCREEN_HEIGHT = "screen_height";
         public static final String IS_FIRST_INTO = "is_first_info";
         public static final String USER_TOKEN = "token";
+        // user
+        public static final String USER_HEAD_IMAGE = "user_head_image";
+        public static final String USER_STATUS = "user_status";
+        public static final String USER_NICK = "user_nick";
+        public static final String USER_PROFESSION = "user_profession";
+        public static final String USER_PHONE = "user_phone";
+        public static final String USER_SEX = "user_sex";
+        public static final String USER_BIRTHDAY = "user_birthday";
     }
 
     public static final class Share {
@@ -37,5 +46,10 @@ public class Constants {
         public static final String GETREGISTSECURITYCODE = BASE_URL + "user/getRegistSecurityCode";
         public static final String REGISTER = BASE_URL + "user/register";
         public static final String LOGIN = BASE_URL + "user/login";
+    }
+
+    public static final class UserInfo {
+        public static final String UPDATE_USER_BASIC = BASE_URL + "user/updateUserBasic";
+        public static final String USER_PROFIT = BASE_URL + "/profit/getUserProfit";
     }
 }

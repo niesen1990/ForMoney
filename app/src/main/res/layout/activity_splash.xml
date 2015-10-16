@@ -10,10 +10,24 @@
     tools:context="com.fuck.formoney.activity.SplashActivity">
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/tvm"
+        style="@android:style/TextAppearance.DeviceDefault.Large"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:text="M+ 启动界面" />
+        android:text="M"
+        android:textSize="65sp" />
+
+    <TextView
+        style="@android:style/TextAppearance.DeviceDefault.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tvm"
+        android:layout_centerInParent="true"
+        android:layout_toRightOf="@+id/tvm"
+        android:gravity="center"
+        android:text="+"
+        android:textSize="35sp" />
 
 </RelativeLayout>

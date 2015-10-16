@@ -147,24 +147,25 @@ public class SPCache {
     }
 
     private <T> SPCache put(String key, T t) {
-        mCache.put(key, new SoftReference<Object>(t));
-        SharedPreferences.Editor editor = getSharedPreferences().edit();
-        if (t instanceof String) {
-            editor.putString(key, (String) t);
-        } else if (t instanceof Integer) {
-            editor.putInt(key, (Integer) t);
-        } else if (t instanceof Boolean) {
-            editor.putBoolean(key, (Boolean) t);
-        } else if (t instanceof Float) {
-            editor.putFloat(key, (Float) t);
-        } else if (t instanceof Long) {
-            editor.putLong(key, (Long) t);
-        } else {
-            Log.d(TAG, "you may be put a invalid object :" + t);
-            editor.putString(key, t.toString());
+        if (null != t) {
+            mCache.put(key, new SoftReference<Object>(t));
+            SharedPreferences.Editor editor = getSharedPreferences().edit();
+            if (t instanceof String) {
+                editor.putString(key, (String) t);
+            } else if (t instanceof Integer) {
+                editor.putInt(key, (Integer) t);
+            } else if (t instanceof Boolean) {
+                editor.putBoolean(key, (Boolean) t);
+            } else if (t instanceof Float) {
+                editor.putFloat(key, (Float) t);
+            } else if (t instanceof Long) {
+                editor.putLong(key, (Long) t);
+            } else {
+                Log.d(TAG, "you may be put a invalid object :" + t);
+                editor.putString(key, t.toString());
+            }
+            SharedPreferencesCompat.apply(editor);
         }
-
-        SharedPreferencesCompat.apply(editor);
         return INSTANCE;
     }
 

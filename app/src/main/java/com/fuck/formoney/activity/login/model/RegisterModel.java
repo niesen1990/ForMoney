@@ -12,17 +12,17 @@ import android.os.Parcelable;
 public class RegisterModel implements Parcelable {
 
     /**
-     * resultMsg : 注册成功
+     * resultMsg : 用户登陆成功
      * statusCode : 200
-     * tokenId : FC1F4C904680493BA0CE933B74DE2EF3
-     * userData : {"appVersion":"meizu","inviteCode":"DMYX4uso","loginDate":"MIEZU","loginPassword":"81dc9bdb52d04dc20036dbd8313ed055","userAddress":"dd","userBigHeadImgUrl":"dad","userBigImgHeight":"da","userBigImgWidth":"dsa","userBirthday":"dafas","userCity":"dfasd","userIndex":"das","userMail":"das","userNick":"df","userPhone":"18221507236","userPhoneVersion":"fsda","userProfession":"dfa","userSex":"dfasd","userSignContext":"dfad","userSmallHeadImgUrl":"dfasd","userSmallImgHeight":"dfa","userSmallImgWidth":"dfa","userStatus":1}
-     * appPushToken : e87e305cae4a44ba8086b4442445328b
+     * tokenId : 66B8C1A3E0D24EAE85B94210A12A819E
+     * data : {"appVersion":"","inviteCode":"CYL7Jvtt","loginDate":"2015-10-14 17:32:05","loginPassword":"e10adc3949ba59abbe56e057f20f883e","userAddress":"","userBigHeadImgUrl":"","userBigImgHeight":"","userBigImgWidth":"","userBirthday":"","userCity":"","userIndex":"","userMail":"","userNick":"","userPhone":"13818155072","userPhoneVersion":"","userProfession":"","userSex":"","userSignContext":"","userSmallHeadImgUrl":"","userSmallImgHeight":"","userSmallImgWidth":"","userStatus":0}
+     * appPushToken : 9ab1efc820304358bd351df8af8f197c
      */
 
     private String resultMsg;
     private int statusCode;
     private String tokenId;
-    private UserDataEntity userData;
+    private DataEntity data;
     private String appPushToken;
 
     public void setResultMsg(String resultMsg) {
@@ -37,8 +37,8 @@ public class RegisterModel implements Parcelable {
         this.tokenId = tokenId;
     }
 
-    public void setUserData(UserDataEntity userData) {
-        this.userData = userData;
+    public void setData(DataEntity data) {
+        this.data = data;
     }
 
     public void setAppPushToken(String appPushToken) {
@@ -57,38 +57,38 @@ public class RegisterModel implements Parcelable {
         return tokenId;
     }
 
-    public UserDataEntity getUserData() {
-        return userData;
+    public DataEntity getData() {
+        return data;
     }
 
     public String getAppPushToken() {
         return appPushToken;
     }
 
-    public static class UserDataEntity implements Parcelable {
+    public static class DataEntity implements Parcelable {
         /**
-         * appVersion : meizu
-         * inviteCode : DMYX4uso
-         * loginDate : MIEZU
-         * loginPassword : 81dc9bdb52d04dc20036dbd8313ed055
-         * userAddress : dd
-         * userBigHeadImgUrl : dad
-         * userBigImgHeight : da
-         * userBigImgWidth : dsa
-         * userBirthday : dafas
-         * userCity : dfasd
-         * userIndex : das
-         * userMail : das
-         * userNick : df
-         * userPhone : 18221507236
-         * userPhoneVersion : fsda
-         * userProfession : dfa
-         * userSex : dfasd
-         * userSignContext : dfad
-         * userSmallHeadImgUrl : dfasd
-         * userSmallImgHeight : dfa
-         * userSmallImgWidth : dfa
-         * userStatus : 1
+         * appVersion :
+         * inviteCode : CYL7Jvtt
+         * loginDate : 2015-10-14 17:32:05
+         * loginPassword : e10adc3949ba59abbe56e057f20f883e
+         * userAddress :
+         * userBigHeadImgUrl :
+         * userBigImgHeight :
+         * userBigImgWidth :
+         * userBirthday :
+         * userCity :
+         * userIndex :
+         * userMail :
+         * userNick :
+         * userPhone : 13818155072
+         * userPhoneVersion :
+         * userProfession :
+         * userSex :
+         * userSignContext :
+         * userSmallHeadImgUrl :
+         * userSmallImgHeight :
+         * userSmallImgWidth :
+         * userStatus : 0
          */
 
         private String appVersion;
@@ -292,7 +292,7 @@ public class RegisterModel implements Parcelable {
 
         @Override
         public String toString() {
-            return "UserDataEntity{" +
+            return "DataEntity{" +
                     "appVersion='" + appVersion + '\'' +
                     ", inviteCode='" + inviteCode + '\'' +
                     ", loginDate='" + loginDate + '\'' +
@@ -350,10 +350,10 @@ public class RegisterModel implements Parcelable {
             dest.writeInt(this.userStatus);
         }
 
-        public UserDataEntity() {
+        public DataEntity() {
         }
 
-        protected UserDataEntity(Parcel in) {
+        protected DataEntity(Parcel in) {
             this.appVersion = in.readString();
             this.inviteCode = in.readString();
             this.loginDate = in.readString();
@@ -378,13 +378,13 @@ public class RegisterModel implements Parcelable {
             this.userStatus = in.readInt();
         }
 
-        public static final Parcelable.Creator<UserDataEntity> CREATOR = new Parcelable.Creator<UserDataEntity>() {
-            public UserDataEntity createFromParcel(Parcel source) {
-                return new UserDataEntity(source);
+        public static final Parcelable.Creator<DataEntity> CREATOR = new Parcelable.Creator<DataEntity>() {
+            public DataEntity createFromParcel(Parcel source) {
+                return new DataEntity(source);
             }
 
-            public UserDataEntity[] newArray(int size) {
-                return new UserDataEntity[size];
+            public DataEntity[] newArray(int size) {
+                return new DataEntity[size];
             }
         };
     }
@@ -395,7 +395,7 @@ public class RegisterModel implements Parcelable {
                 "resultMsg='" + resultMsg + '\'' +
                 ", statusCode=" + statusCode +
                 ", tokenId='" + tokenId + '\'' +
-                ", userData=" + userData +
+                ", data=" + data +
                 ", appPushToken='" + appPushToken + '\'' +
                 '}';
     }
@@ -411,7 +411,7 @@ public class RegisterModel implements Parcelable {
         dest.writeString(this.resultMsg);
         dest.writeInt(this.statusCode);
         dest.writeString(this.tokenId);
-        dest.writeParcelable(this.userData, 0);
+        dest.writeParcelable(this.data, 0);
         dest.writeString(this.appPushToken);
     }
 
@@ -422,7 +422,7 @@ public class RegisterModel implements Parcelable {
         this.resultMsg = in.readString();
         this.statusCode = in.readInt();
         this.tokenId = in.readString();
-        this.userData = in.readParcelable(UserDataEntity.class.getClassLoader());
+        this.data = in.readParcelable(DataEntity.class.getClassLoader());
         this.appPushToken = in.readString();
     }
 
