@@ -31,6 +31,18 @@ public class AutoScrollAdapter extends PagerAdapter {
         }
     }
 
+    public void updateData(ArrayList<BannerModel> datas) {
+        if (datas == null || datas.size() == 0) {
+            return;
+        }
+        banners.clear();
+        banners.addAll(datas);
+        notifyDataSetChanged();
+
+
+
+    }
+
 
     @Override
     public int getCount() {

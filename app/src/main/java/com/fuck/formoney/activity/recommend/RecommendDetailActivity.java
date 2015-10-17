@@ -28,9 +28,6 @@ public class RecommendDetailActivity extends BaseActivity {
     @Override
     protected void init(Bundle savedInstanceState) {
         id = getIntent().getStringExtra("id");
-        banners.add(new BannerModel("http://smart.image.alimmdn.com/app/test/2015-10-16/image_9c630c26657d453f89ca63f6ab4ec9ba", "01"));
-        banners.add(new BannerModel("http://smart.image.alimmdn.com/app/test/2015-10-16/image_9c630c26657d453f89ca63f6ab4ec9ba", "02"));
-        banners.add(new BannerModel("http://moneyhome.image.alimmdn.com/app/image/test/test4", "03"));
         initView();
         attemptDetailRequest(id);
     }
@@ -52,7 +49,10 @@ public class RecommendDetailActivity extends BaseActivity {
                 hideWaitDialog();
                 Log.e("TAG", detailModel.toString());
                 if (detailModel.getStatusCode() == 200) {
-
+                    for (int i = 0; i < detailModel.getData().getTaskImageDatas().size(); i++) {
+                        banners.add(new BannerModel(detailModel.getData().getTaskImageDatas().get(i).getImgPath(), i + ""));
+                    }
+                    adapter.updateData(banners);
                 }
             }
         });
@@ -62,6 +62,8 @@ public class RecommendDetailActivity extends BaseActivity {
         autoscrollviewpager = (AutoScrollViewPager) findViewById(R.id.autoscrollviewpager);
         circlepageindicator = (CirclePageIndicator) findViewById(R.id.circlepageindicator);
         adapter = new AutoScrollAdapter(this, banners);
+        adapter = new AutoScrollAdapter(RecommendDetailActivity.this, banners);
+        autoscrollviewpager.setAdapter(adapter);
         autoscrollviewpager.setAdapter(adapter);
         autoscrollviewpager.setOffscreenPageLimit(6);
         autoscrollviewpager.setScrollFactgor(5);
