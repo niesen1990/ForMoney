@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/btn_limit_time"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginTop="5dp"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="0dp"
+    app:cardElevation="3dp">
+<RelativeLayout
+              android:orientation="vertical" android:id="@+id/tl_item"
+                android:layout_margin="@dimen/global_padding"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:elevation="3dp">
+
+
+    <com.fuck.formoney.widget.CircleImageView
+        android:id="@+id/civ_head"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:civ_border_color="@android:color/white"
+        app:civ_border_width="1dp"
+        android:src="@mipmap/ic_launcher"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/txt_large"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/global_padding"
+        android:lines="1"
+        android:layout_toRightOf="@+id/civ_head"
+        android:text="Perfect Is Shit"/>
+
+    <TextView
+        android:id="@+id/tv_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/global_padding"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_alignBottom="@+id/civ_head"
+        android:textSize="@dimen/txt_middle"
+        android:lines="1"
+        android:layout_toRightOf="@+id/civ_head"
+        android:text="Money"/>
+
+    <TextView
+        android:id="@+id/tv_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_money"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:lines="1"
+        android:textSize="@dimen/txt_middle"
+        android:layout_toRightOf="@+id/tv_money"
+        android:text="CORD"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/btn_download"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/global_padding"
+        android:background="@drawable/selector_button_white_to_red"
+        android:gravity="center"
+        android:paddingBottom="@dimen/half_global_padding"
+        android:paddingTop="@dimen/half_global_padding"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:text="试玩"
+        android:textColor="@drawable/selector_txt_btn_color_to_white"
+        android:textSize="@dimen/txt_large"
+        android:textStyle="bold" />
+
+</RelativeLayout>
+
+    </android.support.v7.widget.CardView>

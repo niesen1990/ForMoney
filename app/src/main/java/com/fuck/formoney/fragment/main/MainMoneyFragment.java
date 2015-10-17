@@ -6,12 +6,13 @@ import android.os.Bundle;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import com.fuck.formoney.MainActivity;
 import com.fuck.formoney.R;
 import com.fuck.formoney.activity.login.model.RegisterModel;
 import com.fuck.formoney.activity.main.LinkShareActivity;
@@ -21,10 +22,7 @@ import com.fuck.formoney.base.BaseApplication;
 import com.fuck.formoney.base.BaseFragment;
 import com.fuck.formoney.base.Constants;
 import com.fuck.formoney.network.OkHttpClientManager;
-import com.fuck.formoney.utils.SPCache;
-import com.fuck.formoney.utils.TDevice;
-import com.fuck.formoney.utils.download.DownloadTools;
-import com.fuck.formoney.utils.log.Log;
+import com.fuck.formoney.utils.PicassoTools;
 import com.squareup.okhttp.Request;
 
 public class MainMoneyFragment extends BaseFragment {
@@ -48,6 +46,11 @@ public class MainMoneyFragment extends BaseFragment {
         // Required empty public constructor
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -97,6 +100,7 @@ public class MainMoneyFragment extends BaseFragment {
         mBtnCourse.setOnClickListener(this);
         mBtnRaffle = (CardView) view.findViewById(R.id.btn_raffle);
         mBtnRaffle.setOnClickListener(this);
+        PicassoTools.loadImage(getActivity(), "http://smart.image.alimmdn.com/app/test/2015-10-16/image_9c630c26657d453f89ca63f6ab4ec9ba", mIvHead);
     }
 
     @Override
@@ -128,5 +132,11 @@ public class MainMoneyFragment extends BaseFragment {
                 getActivity().sendBroadcast(downloadId);
                 break;*/
         }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        //inflater.inflate(R.menu.menu_fragment_money, menu);
     }
 }

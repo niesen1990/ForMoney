@@ -1,21 +1,22 @@
 package com.fuck.formoney.activity.main;
 
 import android.os.Bundle;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.fuck.formoney.R;
 import com.fuck.formoney.base.BaseActivity;
+import com.fuck.formoney.fragment.recommend.RecommendFragment;
 
 public class LinkShareActivity extends BaseActivity {
-    CollapsingToolbarLayout collapsingToolbarLayout;
 
     @Override
     protected void init(Bundle savedInstanceState) {
-        collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsingToolbarLayout.setTitle("限时推荐");
-        collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(android.R.color.transparent));
+        initView();
+    }
+
+    private void initView() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, new RecommendFragment(false)).commit();
     }
 
     @Override

@@ -11,7 +11,7 @@ public class Constants {
     public static final String INTENT_ACTION_EXIT_APP = packageName + ".intent.action.exitapp";
     public final static int CANCEL_WAIT_DIALOG = 10001;
     public final static String BASE_URL = "http://121.41.94.101:8098/";
-    //public final static String BASE_URL = "http://192.168.100.158:8080/qj-web/";
+    //public final static String BASE_URL = "http://192.168.1.104:8080/qj-web/";
 
     public static class SharePreference {
         public static final String SCREEN_WIDTH = "screen_width";
@@ -51,5 +51,11 @@ public class Constants {
     public static final class UserInfo {
         public static final String UPDATE_USER_BASIC = BASE_URL + "user/updateUserBasic";
         public static final String USER_PROFIT = BASE_URL + "/profit/getUserProfit";
+    }
+
+    public static final class Recommend{
+        public static final String RECOMMEND_GETPAGE = BASE_URL + "task/recommend/getPage";
+        public static final String RECOMMEND_GETDETAIL = BASE_URL + "task/recommend/getDetail";
+
     }
 }

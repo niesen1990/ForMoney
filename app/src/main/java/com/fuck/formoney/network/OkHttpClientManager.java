@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +14,6 @@ import com.fuck.formoney.base.BaseApplication;
 import com.fuck.formoney.utils.log.Log;
 import com.google.gson.Gson;
 import com.google.gson.internal.$Gson$Types;
-import com.squareup.okhttp.Cache;
 import com.squareup.okhttp.Call;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.FormEncodingBuilder;
@@ -48,11 +48,9 @@ import java.security.cert.X509Certificate;
 import java.util.Map;
 import java.util.Set;
 
-import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.KeyManager;
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
@@ -62,7 +60,7 @@ public class OkHttpClientManager {
     private static final String TAG = "OkHttpClientManager";
 
     private static OkHttpClientManager mInstance;
-    private OkHttpClient mOkHttpClient;
+    private static OkHttpClient mOkHttpClient = null;
     private Handler mDelivery;
     private Gson mGson;
 
@@ -1200,6 +1198,37 @@ public class OkHttpClientManager {
             return value;
 
         }
+    }
+
+   /* not well*/
+
+    // post without file
+    public static void asyncPost(String url, Map<String, String> body, Callback callback) {
+
+
+        FormEncodingBuilder formEncodingBuilder = new FormEncodingBuilder();
+        for (String key : body.keySet()) {
+            if (TextUtils.isEmpty(body.get(key))) {
+                return;
+            }
+            formEncodingBuilder.add(key, body.get(key));
+        }
+        RequestBody formBody = formEncodingBuilder.build();
+        Request request = new Request.Builder()
+                .url(url)
+                .post(formBody)
+                .build();
+        enqueue(request, callback);
+    }
+
+    /**
+     * 开启异步线程访问网络
+     *
+     * @param request
+     * @param responseCallback
+     */
+    private  static void enqueue(Request request, Callback responseCallback) {
+        mOkHttpClient.newCall(request).enqueue(responseCallback);
     }
 }
 

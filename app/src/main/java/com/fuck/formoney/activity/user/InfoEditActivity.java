@@ -21,7 +21,6 @@ import android.widget.TextView;
 import com.cmbb.smartkids.mengbottomsheets.BottomSheet;
 import com.cmbb.smartkids.photopicker.PhotoPickerActivity;
 import com.cmbb.smartkids.photopicker.utils.PhotoPickerIntent;
-import com.fuck.formoney.MainActivity;
 import com.fuck.formoney.R;
 import com.fuck.formoney.activity.login.model.RegisterModel;
 import com.fuck.formoney.base.BaseActivity;
@@ -32,7 +31,6 @@ import com.fuck.formoney.utils.PicassoTools;
 import com.fuck.formoney.utils.SPCache;
 import com.fuck.formoney.utils.log.Log;
 import com.squareup.okhttp.Request;
-import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -100,7 +98,7 @@ public class InfoEditActivity extends BaseActivity {
         birthday = SPCache.getString(Constants.SharePreference.USER_BIRTHDAY, "");
         profession = SPCache.getString(Constants.SharePreference.USER_PROFESSION, "");
         if (!TextUtils.isEmpty(image)) {
-            PicassoTools.loadImage(this, image, ivHead, true);
+            PicassoTools.loadImage(this, image, ivHead);
         }
         if (!TextUtils.isEmpty(nick)) {
             mEtName.setText(nick);
@@ -244,7 +242,7 @@ public class InfoEditActivity extends BaseActivity {
                 imgs = data.getStringArrayListExtra(PhotoPickerActivity.KEY_SELECTED_PHOTOS);
                 Log.i("image", "image = " + imgs.get(0));
                 if (imgs.size() == 0) return;
-                PicassoTools.loadImage(this, imgs.get(0), ivHead, true);
+                PicassoTools.loadImage(this, imgs.get(0), ivHead);
             }
         }
     }

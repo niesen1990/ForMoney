@@ -3,15 +3,16 @@ package com.fuck.formoney.activity.login;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.widget.AppCompatEditText;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.fuck.formoney.MainActivity;
 import com.fuck.formoney.R;
@@ -19,12 +20,15 @@ import com.fuck.formoney.activity.login.model.RegisterModel;
 import com.fuck.formoney.base.BaseActivity;
 import com.fuck.formoney.base.BaseApplication;
 import com.fuck.formoney.base.Constants;
+import com.fuck.formoney.base.CustomListener;
 import com.fuck.formoney.network.OkHttpClientManager;
+import com.fuck.formoney.utils.CustomWatcher;
 import com.fuck.formoney.utils.SPCache;
 import com.fuck.formoney.utils.TDevice;
 import com.fuck.formoney.utils.log.Log;
+import com.fuck.formoney.utils.log.Tools;
+import com.fuck.formoney.widget.CustomDialogBuilder;
 import com.squareup.okhttp.Request;
-import com.umeng.message.ALIAS_TYPE;
 import com.umeng.message.IUmengRegisterCallback;
 
 public class LoginActivity extends BaseActivity {
@@ -85,14 +89,81 @@ public class LoginActivity extends BaseActivity {
                 break;
             // QQ
             case R.id.btn_login_qq:
+                showBundlePhoneDialog(createPhoneView("请输入您的手机号码"));
                 break;
             // weixin
             case R.id.btn_login_wx:
+                showBundlePhoneDialog(createPhoneView("请输入您的手机号码"));
                 break;
             // sina
             case R.id.btn_login_sina:
+                showBundlePhoneDialog(createPhoneView("请输入您的手机号码"));
                 break;
         }
+    }
+
+
+    private CustomDialogBuilder builder = null;
+
+    private void showBundlePhoneDialog(View view) {
+        int width = TDevice.getScreenWidth(this) * 3 / 4;
+        builder = CustomDialogBuilder.getInstance(this).setDialogWindows(width, ViewGroup.LayoutParams.WRAP_CONTENT).isCancelableOnTouchOutside(false);
+
+        builder.withTitle("绑定手机号码")
+                .withMessageMiss(View.GONE)
+                .withCustomContentView(view, this)
+                .withCancelText("取消", new CustomListener.DialogListener() {
+                    @Override
+                    public void onClick(View v) {
+                        builder.dismiss();
+                    }
+                }).withComfirmText("确定", new CustomListener.DialogListener() {
+            @Override
+            public void onClick(View v) {
+                String phone = etPhone.getText().toString();
+                String verify = etVerify.getText().toString();
+                if (TextUtils.isEmpty(phone) || !Tools.isMobileNo(phone)) {
+                    showShortToast("手机号码格式不正确");
+                    return;
+                }
+                if (TextUtils.isEmpty(verify)) {
+                    showShortToast("验证码不能为空");
+                    return;
+                }
+                changePhoneRequest(phone, verify);
+            }
+        });
+        builder.show();
+    }
+
+    /**
+     * verify phone number
+     * @param phone
+     * @param verify
+     */
+    private void changePhoneRequest(String phone, String verify) {
+
+    }
+
+    private EditText etChange, etPhone, etVerify;
+    private TextView tvVerify;
+    /**
+     * 修改手机号弹窗
+     *
+     * @param tip
+     * @return
+     */
+    private View createPhoneView(String tip) {
+        View view = getLayoutInflater().inflate(R.layout.view_modify_phone, null);
+        etPhone = (EditText) view.findViewById(R.id.et_phone);
+        ImageView ivClear = (ImageView) view.findViewById(R.id.iv_phone_clear);
+        tvVerify = (TextView) view.findViewById(R.id.tv_verify);
+        etVerify = (EditText) view.findViewById(R.id.et_verify);
+        etPhone.setHint(tip);
+        etPhone.setInputType(InputType.TYPE_CLASS_NUMBER);
+        new CustomWatcher(etPhone, ivClear);
+        tvVerify.setOnClickListener(this);
+        return view;
     }
 
     private void handleLoginRequest() {

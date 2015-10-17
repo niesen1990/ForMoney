@@ -3,7 +3,6 @@ package com.fuck.formoney.utils;
 import android.content.Context;
 import android.widget.ImageView;
 
-import com.fuck.formoney.widget.CircleTransform;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
@@ -16,24 +15,12 @@ import java.io.File;
  */
 public class PicassoTools {
 
-    public static void loadImage(Context context, String url, ImageView view, boolean circle) {
+    public static void loadImage(Context context, String url, ImageView view) {
         //路径问题
         if (url.contains("storage")) {
-            if (circle) {
-                Picasso.with(context).load(new File(url)).transform(new CircleTransform()).placeholder(com.cmbb.smartkids.photopicker.R.drawable.ic_photo_black_48dp).fit()
-                        .error(com.cmbb.smartkids.photopicker.R.drawable.ic_broken_image_black_48dp).into(view);
-            } else {
-                Picasso.with(context).load(new File(url)).placeholder(com.cmbb.smartkids.photopicker.R.drawable.ic_photo_black_48dp).fit()
-                        .error(com.cmbb.smartkids.photopicker.R.drawable.ic_broken_image_black_48dp).into(view);
-            }
+                Picasso.with(context).load(new File(url)).fit().into(view);
         } else {
-            if (circle) {
-                Picasso.with(context).load(url).transform(new CircleTransform()).placeholder(com.cmbb.smartkids.photopicker.R.drawable.ic_photo_black_48dp).fit()
-                        .error(com.cmbb.smartkids.photopicker.R.drawable.ic_broken_image_black_48dp).into(view);
-            } else {
-                Picasso.with(context).load(url).placeholder(com.cmbb.smartkids.photopicker.R.drawable.ic_photo_black_48dp).fit()
-                        .error(com.cmbb.smartkids.photopicker.R.drawable.ic_broken_image_black_48dp).into(view);
-            }
+                Picasso.with(context).load(url).fit().into(view);
         }
     }
 

@@ -7,27 +7,34 @@
 
     <include layout="@layout/custom_actionbar" />
 
-    <android.support.v4.widget.NestedScrollView
+
+    <FrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar">
+        android:layout_below="@+id/toolbar"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+    <!--<android.support.v4.widget.NestedScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_below="@+id/toolbar">-->
 
-            <include layout="@layout/activity_link_share_list_item" />
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:orientation="vertical">-->
 
-            <include layout="@layout/activity_link_share_list_item" />
+            <!--<include layout="@layout/activity_link_share_list_item" />-->
 
-            <include layout="@layout/activity_link_share_list_item" />
+            <!--<include layout="@layout/activity_link_share_list_item" />-->
 
-            <include layout="@layout/activity_link_share_list_item" />
+            <!--<include layout="@layout/activity_link_share_list_item" />-->
 
-            <include layout="@layout/activity_link_share_list_item" />
-        </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+            <!--<include layout="@layout/activity_link_share_list_item" />-->
+
+            <!--<include layout="@layout/activity_link_share_list_item" />-->
+        <!--</LinearLayout>-->
+    <!--</android.support.v4.widget.NestedScrollView>-->
 </RelativeLayout>
 
 
